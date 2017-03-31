@@ -1,16 +1,15 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "key_map.h"
-# include "minilibx_macos/mlx.h"
+# include "../minilibx_macos/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
 
-
-# define SCREEN_WIDTH 	500
-# define SCREEN_HEIGHT 	500
+# define WIDTH 			500
+# define HEIGHT 		500
 # define X_SCALE 		400
 # define Y_SCALE 		400
 # define WHITE 	0x00ffffff
@@ -21,13 +20,6 @@
 # define BLUE 	0x000000FF
 # define YELLOW	0x00fbff23
 
-typedef struct 	s_pts
-{
-	int 	x;
-	int 	y;
-	int 	color;
-}				t_pts;
-
 typedef struct 	s_controls
 {
 	int 	mouse_x;
@@ -36,18 +28,23 @@ typedef struct 	s_controls
 	int 	julia_mouse_y;
 	int 	zoom_iterations;
 	double	speed_range;
-	double 	total_offsetx;
-	double 	total_offsety;
 	double 	mag_p1;
 	double 	mag_p2;
 	double 	mag_neg1;
 	double 	mag_neg2;
-	double 	mag;
-	double 	panX;
-	double 	panY;
 	double 	angle;
 	double	angle1;
 }				t_controls;
+
+typedef struct s_fract
+{
+	double a;
+	double b;
+	double twoab;
+	double ca;
+	double cb;
+	double bb;
+}				t_fract;
 
 typedef struct	s_connection
 {
@@ -58,7 +55,6 @@ typedef struct	s_connection
 	int				map;
 	int				color_wheel[50];
 	t_keys			key;
-	t_pts			*pts;
 	t_controls 		ctrls;
 }				t_connection;
 
@@ -73,6 +69,8 @@ void 	calc_color(t_connection *obj, int n, int x, int y);
 double 	map_num(double num, double screen, double min_num, double max_num);
 int 	display_julia(t_connection *obj, int x, int y);
 void 	julia(t_connection *obj);
+int		display_burning_ship(t_connection *obj, int x, int y);
+void	burning_ship(t_connection *obj);
 int		tracking_hook(int x, int y, t_connection *obj);
 void	init_keys(t_connection *obj);
 void	init_colors2(t_connection *obj);
@@ -82,12 +80,5 @@ int 	tog_key(int key);
 void 	keymove(int keycode, t_connection *obj, double move_speed);
 void 	mouse_move(t_connection *obj, double move_speed, int axis);
 void 	key_zoom(int keycode, t_connection *obj);
-
-
-
-
-
-
-
 
 #endif

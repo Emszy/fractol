@@ -1,4 +1,5 @@
-#include "fractol.h"
+#include "../includes/fractol.h"
+
 int tog_key(int key)
 {
 	if (key == 0)
@@ -33,7 +34,6 @@ void keymove(int keycode, t_connection *obj, double move_speed)
 	}
 }
 
-
 void mouse_move(t_connection *obj, double move_speed, int axis)
 {
 
@@ -51,7 +51,6 @@ void mouse_move(t_connection *obj, double move_speed, int axis)
 
 void key_zoom(int keycode, t_connection *obj)
 {
-
 	double zoom_lvl;
 
 	zoom_lvl = 0.99;
@@ -63,7 +62,7 @@ void key_zoom(int keycode, t_connection *obj)
 		obj->ctrls.mag_neg2 = obj->ctrls.mag_neg2 * zoom_lvl;
 		obj->ctrls.zoom_iterations++;
 	}
-	if (keycode == KEY_X)
+	if (keycode == KEY_X && obj->ctrls.zoom_iterations > -200)
 	{
 		obj->ctrls.mag_p1 = obj->ctrls.mag_p1 / zoom_lvl;
 		obj->ctrls.mag_neg1 = obj->ctrls.mag_neg1 / zoom_lvl;
@@ -71,7 +70,4 @@ void key_zoom(int keycode, t_connection *obj)
 		obj->ctrls.mag_neg2 = obj->ctrls.mag_neg2 / zoom_lvl;
 		obj->ctrls.zoom_iterations--;
 	}
-	
-
-	printf("%d\n", obj->ctrls.zoom_iterations);
 }

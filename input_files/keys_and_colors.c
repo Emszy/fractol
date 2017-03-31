@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void init_keys(t_connection *obj)
 {
@@ -8,16 +8,6 @@ void init_keys(t_connection *obj)
  	obj->key.d = 		0;
  	obj->key.e = 		0;
  	obj->key.f = 		0;
- 	obj->key.g = 		0;
- 	obj->key.h = 		0;
- 	obj->key.i = 		0;
- 	obj->key.j = 		0;
- 	obj->key.k = 		0;
- 	obj->key.l = 		0;
- 	obj->key.m = 		0;
- 	obj->key.n = 		0;
- 	obj->key.o = 		0;
- 	obj->key.p = 		0;
  	obj->key.q = 		0;
  	obj->key.r = 		0;
  	obj->key.s = 		0;
