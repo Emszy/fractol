@@ -17,22 +17,20 @@ int 	key_hook(int keycode, t_connection *obj)
 
 int  	mouse_hook(int button, int x, int y, t_connection *obj)
 {
-	double speed_y;
-	double speed_x;
-
-	speed_x = map_num(x, WIDTH, -obj->ctrls.speed_range, obj->ctrls.speed_range);
-	speed_y = map_num(y, HEIGHT, -obj->ctrls.speed_range, obj->ctrls.speed_range);
 	if (button == 5)
-	{	
-		key_zoom(KEY_Z, obj);
-		mouse_move(obj, speed_x, 1);
-		mouse_move(obj, speed_y, 2);
+	{
+		x -= obj->width / 2;
+		y -= obj->height / 2;
+		obj->zoom = (obj->zoom + 1) * 1.1;
+		obj->x_shift += x / obj->zoom / 1.5;
+		obj->y_shift += y / obj->zoom / 1.5;
 	}
-	if (button == 4)
-	{	
-		key_zoom(KEY_X, obj);
-		mouse_move(obj, speed_x, 1);
-		mouse_move(obj, speed_y, 2);
+	else if (button == 4)
+	{
+		if (obj->zoom > 2)
+			obj->zoom = (obj->zoom - 1) / 1.1;
+		if (obj->zoom < 4)
+			obj->zoom = 1;
 	}
 	mlx_clear_window(obj->mlx, obj->win);
 	display_fractol(obj);

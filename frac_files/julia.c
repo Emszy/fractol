@@ -7,8 +7,8 @@ int display_julia(t_connection *obj, int x, int y)
 
 	m.twoab = 0;
 	n = -1;
-	m.a = map_num(x, WIDTH, obj->ctrls.mag_neg1, obj->ctrls.mag_p1);
-	m.b = map_num(y, HEIGHT, obj->ctrls.mag_neg2, obj->ctrls.mag_p2);
+	m.a = ((4.0 * x /obj->width - 2.0) /obj->zoom) + (obj->x_shift /obj->width);
+	m.b = ((4.0 * y /obj->height - 2.0) /obj->zoom) + (obj->y_shift /obj->height);
 	m.ca = map_num(obj->ctrls.julia_mouse_x, WIDTH, 1, -1);
 	m.cb = map_num(obj->ctrls.julia_mouse_y, HEIGHT, 1, -1);
 	while (++n < 50)
@@ -21,6 +21,7 @@ int display_julia(t_connection *obj, int x, int y)
 	}
 	return (n);
 }
+
 
 void julia(t_connection *obj)
 {

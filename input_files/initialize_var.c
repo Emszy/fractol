@@ -8,14 +8,22 @@ void init_window(t_connection *obj)
 
 void init_movement(t_connection *obj)
 {
+	obj->max_iter = 64;
+	obj->width = WIDTH;
+	obj->height = HEIGHT;
+	obj->mouse_x = 0;
+	obj->mouse_y = 0;
+	obj->zoom = 1.0;
+	obj->x_shift = 0;
+	obj->y_shift = 0;
 	obj->ctrls.mouse_x = 0;
 	obj->ctrls.mouse_y = 0;
-	obj->ctrls.mag_p1 = 2.5;
+	obj->ctrls.mag_p1 = 1;
 	obj->ctrls.mag_p2 = 2.5;
 	obj->ctrls.mag_neg1 = -2.5;
-	obj->ctrls.mag_neg2 = -2.5;
+	obj->ctrls.mag_neg2 = -2;
 	obj->ctrls.zoom_iterations = 0;
-	obj->ctrls.speed_range = 0.06;
+	obj->ctrls.speed_range = 1;
 	obj->ctrls.angle = 0;
 	obj->ctrls.angle1 = 0;
 }

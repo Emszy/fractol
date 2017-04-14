@@ -20,6 +20,9 @@
 # define BLUE 	0x000000FF
 # define YELLOW	0x00fbff23
 
+
+
+
 typedef struct 	s_controls
 {
 	int 	mouse_x;
@@ -34,6 +37,11 @@ typedef struct 	s_controls
 	double 	mag_neg2;
 	double 	angle;
 	double	angle1;
+
+
+
+
+
 }				t_controls;
 
 typedef struct s_fract
@@ -54,6 +62,15 @@ typedef struct	s_connection
 	void 			*new_img;
 	int				map;
 	int				color_wheel[50];
+	int			max_iter;
+	int			width;
+	int			height;
+	double		mouse_x;
+	double		mouse_y;
+	int			color_spin;
+	int			zoom;
+	double		x_shift;
+	double		y_shift;
 	t_keys			key;
 	t_controls 		ctrls;
 }				t_connection;
@@ -64,12 +81,12 @@ void 	error_master5000(char *message);
 void 	initializer(t_connection *obj);
 double 	checkIfBelongsToMandelbrotSet(double x, double y); 
 void 	mandelbrot(t_connection *obj);
-int 	display_mandelbrot(t_connection *obj, int x, int y);
+int 	display_mandelbrot(t_connection *obj, double re, double im);
 void 	calc_color(t_connection *obj, int n, int x, int y);
 double 	map_num(double num, double screen, double min_num, double max_num);
 int 	display_julia(t_connection *obj, int x, int y);
 void 	julia(t_connection *obj);
-int		display_burning_ship(t_connection *obj, int x, int y);
+int		display_burning_ship(t_connection *obj, double re, double im);
 void	burning_ship(t_connection *obj);
 int		tracking_hook(int x, int y, t_connection *obj);
 void	init_keys(t_connection *obj);
