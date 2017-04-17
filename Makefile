@@ -9,9 +9,8 @@ SRC =	\
 		frac_files/julia.c \
 		frac_files/burning_ship.c \
 		input_files/initialize_var.c \
-		input_files/mouse_and_keypress.c \
 		input_files/hooks.c \
-		input_files/keys_and_colors.c \
+		input_files/init_colors.c \
 
 FRAC_OBJ = 	\
 		mandelbrot.o \
@@ -35,8 +34,6 @@ $(NAME): $(OBJ) includes/fractol.h
 	gcc $(FLAGS) -I /libft -c $(SRC)
 	gcc -o $(NAME) $(OBJ) -lm -L libft/ -lft $(MINILIB_X) -framework OpenGL -framework AppKit
 
-.PHONY: clean fclean
-
 clean:
 	make -C libft/ clean
 	/bin/rm -f $(OBJ)
@@ -47,5 +44,6 @@ fclean: clean
 	make -C libft/ fclean
 	/bin/rm -f $(NAME)
 
-
 re: fclean all
+	
+.PHONY: clean fclean

@@ -12,7 +12,7 @@
 
 #include "includes/fractol.h"
 
-void you_effed_up()
+void	you_effed_up()
 {
 	ft_putstr("dial \"1\" for mandelbrot\n");
 	ft_putstr("dial \"2\" for julia\n");
@@ -20,7 +20,7 @@ void you_effed_up()
 	error_master5000("EX: ./fractol 1");
 }
 
-void display_fractol(t_connection *obj)
+void	display_fractol(t_connection *obj)
 {
 	if(obj->map == 1)
 		mandelbrot(obj);
@@ -30,7 +30,7 @@ void display_fractol(t_connection *obj)
 		burning_ship(obj);
 }
 
-void chorus(t_connection *obj)
+void	chorus(t_connection *obj)
 {
 	mlx_key_hook(obj->win, key_hook, obj);
 	mlx_mouse_hook(obj->win, mouse_hook, obj);
@@ -39,7 +39,7 @@ void chorus(t_connection *obj)
 	mlx_loop(obj->mlx);
 }
 
-void setmap(t_connection *obj, char *mapnum)
+void	setmap(t_connection *obj, char *mapnum)
 {
 	if ((ft_strcmp(mapnum, "1") == 0))
 		obj->map = 1;
@@ -51,7 +51,7 @@ void setmap(t_connection *obj, char *mapnum)
 		you_effed_up();
 }
 
-int main(int ac, char **av)
+int		main(int ac, char **av)
 {	
 	t_connection *obj;
 

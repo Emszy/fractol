@@ -24,7 +24,7 @@
 # define KEY_K 		40
 # define KEY_N 		45
 # define KEY_M 		46
-# define KEY_SPACE    49
+# define KEY_SPACE  49
 # define KEY_LEFT 	123
 # define KEY_RIGHT 	124
 # define KEY_DOWN 	125
@@ -33,26 +33,5 @@
 
 typedef struct  s_keys
 {
-  int			a;
-  int			b;
-  int			c;
-  int			d;
-  int			e;
-  int			f;
-  int			g;
-  int			q;
-  int			r;
-  int			s;
-  int			t;
-  int			u;
-  int			v;
-  int			w;
-  int			x;
-  int			y;
-  int			z;
   int     space;
-  int			left;
-  int			right;
-  int			up;
-  int			down;
 }				t_keys;

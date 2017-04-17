@@ -12,31 +12,6 @@
 
 #include "../includes/fractol.h"
 
-void init_keys(t_connection *obj)
-{
-	obj->key.a = 		0;
- 	obj->key.b = 		0;
- 	obj->key.c = 		0;
- 	obj->key.d = 		0;
- 	obj->key.e = 		0;
- 	obj->key.f = 		0;
- 	obj->key.q = 		0;
- 	obj->key.r = 		0;
- 	obj->key.s = 		0;
- 	obj->key.t = 		0;
- 	obj->key.u = 		0;
- 	obj->key.v = 		0;
- 	obj->key.w = 		0;
- 	obj->key.x = 		0;
- 	obj->key.y = 		0;
- 	obj->key.z = 		0;
- 	obj->key.space = 	0;
- 	obj->key.left =		0;
- 	obj->key.right =	0;
- 	obj->key.up =		0;
- 	obj->key.down =		0;
-}
-
 void init_colors2(t_connection *obj)
 {
 	obj->color_wheel[25] = 	0x0063701f;
